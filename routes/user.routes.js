@@ -19,7 +19,8 @@ router.post('/register',async(req,res)=>{
         email,
         password:hashPass}
     )
-    res.send("user registered succesfully")
+
+    res.redirect('/user/login');
 })
 
 router.get('/login',(req,res)=>{
@@ -48,7 +49,8 @@ router.post('/login',async(req,res)=>{
         username:user.username
     },process.env.JWT_SECRET)
       res.cookie('token',token)
-    res.send("user logged in succesfully!!!")
+    // res.send("user logged in succesfully!!!")
+    res.redirect('/home');
 }
 )
     
